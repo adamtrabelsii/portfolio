@@ -211,6 +211,44 @@
       color: var(--text);
     }
 
+    /* Language toggle */
+    .nav-lang {
+      background: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      color: var(--muted);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      transition: color 0.2s, border-color 0.2s;
+      line-height: 1;
+    }
+
+    .nav-lang:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .mobile-menu-lang {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 10px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .mobile-menu-lang:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
     .icon-sun {
       display: none;
     }
@@ -1357,14 +1395,17 @@
   <nav>
     <a href="#hero" class="nav-logo">AT_</a>
     <ul class="nav-links" aria-label="Primary">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#education" data-i18n="nav.education">Education</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
     <div class="nav-right">
+      <button class="nav-lang" aria-label="Cambiar a español" type="button">
+        <span class="lang-code">ES</span>
+      </button>
       <button class="nav-theme" aria-label="Switch to light mode">
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1386,19 +1427,20 @@
       <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
-      <a href="mailto:ademtrabelsi2001@gmail.com" class="nav-cta">Get in touch</a>
+      <a href="mailto:ademtrabelsi2001@gmail.com" class="nav-cta" data-i18n="nav.cta">Get in touch</a>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
   <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-    <a href="mailto:ademtrabelsi2001@gmail.com" class="mobile-menu-cta">Get in touch</a>
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#skills" data-i18n="nav.skills">Skills</a>
+    <a href="#projects" data-i18n="nav.projects">Projects</a>
+    <a href="#experience" data-i18n="nav.experience">Experience</a>
+    <a href="#education" data-i18n="nav.education">Education</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <button type="button" class="mobile-menu-lang" data-mobile-lang>ES — Cambiar a español</button>
+    <a href="mailto:ademtrabelsi2001@gmail.com" class="mobile-menu-cta" data-i18n="nav.cta">Get in touch</a>
   </div>
 
   <main id="main">
@@ -1409,17 +1451,17 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-eyebrow">Available for opportunities</div>
+          <div class="hero-eyebrow" data-i18n="hero.eyebrow">Available for opportunities</div>
           <h1 class="hero-name">
             Adam<br>
             <span>Trabelsi</span>
           </h1>
-          <p class="hero-tagline">Full-stack developer working with Node.js, TypeScript and React. I care about
+          <p class="hero-tagline" data-i18n="hero.tagline">Full-stack developer working with Node.js, TypeScript and React. I care about
             clean architecture, sharp interfaces, and code that holds up in production.</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn-primary">View my work</a>
-            <a href="mailto:ademtrabelsi2001@gmail.com" class="btn-ghost">Say hello →</a>
-            <a href="uploads/cv-english.pdf" download="Adam_Trabelsi_CV.pdf" class="btn-cv">↓ CV</a>
+            <a href="#projects" class="btn-primary" data-i18n="hero.work">View my work</a>
+            <a href="mailto:ademtrabelsi2001@gmail.com" class="btn-ghost" data-i18n="hero.hello">Say hello →</a>
+            <a href="uploads/cv-english.pdf" download="Adam_Trabelsi_CV.pdf" class="btn-cv" data-cv data-i18n="hero.cv">↓ CV</a>
           </div>
         </div>
         <div class="hero-photo-wrap">
@@ -1429,8 +1471,8 @@
           <div class="hero-photo-ring" aria-hidden="true"></div>
         </div>
       </div>
-      <div class="hero-scroll-hint" aria-hidden="true">Scroll to explore</div>
-      <div class="hero-location" aria-hidden="true">📍 Madrid, Spain</div>
+      <div class="hero-scroll-hint" aria-hidden="true" data-i18n="hero.scroll">Scroll to explore</div>
+      <div class="hero-location" aria-hidden="true" data-i18n="hero.location">📍 Madrid, Spain</div>
     </section>
 
     <div class="section-divider" role="separator"></div>
@@ -1438,34 +1480,34 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="scroll-reveal">
-        <div class="section-label">01 — About</div>
-        <h2 class="section-title">Developer.<br>Problem solver.<br>Multilingual.</h2>
+        <div class="section-label" data-i18n="about.label">01 — About</div>
+        <h2 class="section-title" data-i18n-html="about.title">Developer.<br>Problem solver.<br>Multilingual.</h2>
       </div>
       <div class="about-grid scroll-reveal">
         <div class="about-text">
-          <p>I'm a <strong>Full-Stack Developer</strong> with a strong focus on Node.js and TypeScript, experienced in
+          <p data-i18n-html="about.p1">I'm a <strong>Full-Stack Developer</strong> with a strong focus on Node.js and TypeScript, experienced in
             building scalable web applications and integrating robust APIs.</p>
-          <p>With a background in Computer Science and Multimedia, I bring both <strong>technical depth and creative
+          <p data-i18n-html="about.p2">With a background in Computer Science and Multimedia, I bring both <strong>technical depth and creative
               sensibility</strong> to every project — from backend architecture to responsive frontend design.</p>
-          <p>I'm multilingual (Arabic, English, French, Spanish) with a <strong>problem-solving mindset</strong> and
+          <p data-i18n-html="about.p3">I'm multilingual (Arabic, English, French, Spanish) with a <strong>problem-solving mindset</strong> and
             strong communication skills, making me effective in diverse, international teams.</p>
         </div>
         <div class="about-stats">
           <div class="stat-card">
             <div class="stat-number">2+</div>
-            <div class="stat-label">Years experience</div>
+            <div class="stat-label" data-i18n="about.stat1">Years experience</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">4</div>
-            <div class="stat-label">Languages spoken</div>
+            <div class="stat-label" data-i18n="about.stat2">Languages spoken</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">C1</div>
-            <div class="stat-label">Spanish level</div>
+            <div class="stat-label" data-i18n="about.stat3">Spanish level</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">20+</div>
-            <div class="stat-label">Students led</div>
+            <div class="stat-label" data-i18n="about.stat4">Students led</div>
           </div>
         </div>
       </div>
@@ -1477,12 +1519,12 @@
     <div id="skills">
       <div class="inner">
         <div class="scroll-reveal">
-          <div class="section-label">02 — Skills</div>
-          <h2 class="section-title">Tech stack</h2>
+          <div class="section-label" data-i18n="skills.label">02 — Skills</div>
+          <h2 class="section-title" data-i18n="skills.title">Tech stack</h2>
         </div>
         <div class="skills-categories scroll-reveal">
           <div class="skill-category">
-            <h4>Frontend</h4>
+            <h4 data-i18n="skills.cat1">Frontend</h4>
             <div class="skills-grid">
               <span class="skill-chip">React</span>
               <span class="skill-chip">Angular</span>
@@ -1493,7 +1535,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Backend</h4>
+            <h4 data-i18n="skills.cat2">Backend</h4>
             <div class="skills-grid">
               <span class="skill-chip">Node.js</span>
               <span class="skill-chip">PHP</span>
@@ -1502,7 +1544,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Tools &amp; Methods</h4>
+            <h4 data-i18n="skills.cat3">Tools &amp; Methods</h4>
             <div class="skills-grid">
               <span class="skill-chip">Git</span>
               <span class="skill-chip">Scrum</span>
@@ -1519,11 +1561,11 @@
     <!-- PROJECTS -->
     <section id="projects">
       <div class="scroll-reveal">
-        <div class="section-label">03 — Projects</div>
+        <div class="section-label" data-i18n="projects.label">03 — Projects</div>
         <div
           style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:48px;">
-          <h2 class="section-title" style="margin-bottom:0;">Things I've built</h2>
-          <span style="font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:0.1em;">MORE COMING
+          <h2 class="section-title" style="margin-bottom:0;" data-i18n="projects.title">Things I've built</h2>
+          <span style="font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:0.1em;" data-i18n="projects.more">MORE COMING
             SOON</span>
         </div>
       </div>
@@ -1534,16 +1576,16 @@
             <img src="uploads/ardor.PNG" alt="ARDOR restaurant template preview" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
           </div>
           <div class="project-body">
-            <div class="project-title">ARDOR — Restaurant Template</div>
-            <p class="project-desc">Premium website template for a fictional Madrid fine-dining restaurant. Features an editorial dark aesthetic, immersive food photography layout, and sections for dishes, drinks, and reservations — ready to hand off to any client.</p>
+            <div class="project-title" data-i18n="projects.p1.title">ARDOR — Restaurant Template</div>
+            <p class="project-desc" data-i18n="projects.p1.desc">Premium website template for a fictional Madrid fine-dining restaurant. Features an editorial dark aesthetic, immersive food photography layout, and sections for dishes, drinks, and reservations — ready to hand off to any client.</p>
             <div class="project-tags">
               <span class="project-tag">HTML</span>
               <span class="project-tag">CSS</span>
               <span class="project-tag">JavaScript</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/adamtrabelsii/restaurant-template-premium" target="_blank" rel="noopener" class="project-link">GitHub →</a>
-              <a href="https://ardor-restaurant-template-premium.vercel.app/#hero" target="_blank" rel="noopener" class="project-link">Live →</a>
+              <a href="https://github.com/adamtrabelsii/restaurant-template-premium" target="_blank" rel="noopener" class="project-link" data-i18n="projects.github">GitHub →</a>
+              <a href="https://ardor-restaurant-template-premium.vercel.app/#hero" target="_blank" rel="noopener" class="project-link" data-i18n="projects.live">Live →</a>
             </div>
           </div>
         </div>
@@ -1553,16 +1595,16 @@
             <img src="uploads/TOQ.PNG" alt="The Old Quarter barbershop template preview" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
           </div>
           <div class="project-body">
-            <div class="project-title">The Old Quarter — Barbershop Template</div>
-            <p class="project-desc">A moody black-and-gold website template for a classic barbershop brand. Bold headline typography, appointment booking UI, service listings, and team sections — built to evoke old-world craft with a sharp modern finish.</p>
+            <div class="project-title" data-i18n="projects.p2.title">The Old Quarter — Barbershop Template</div>
+            <p class="project-desc" data-i18n="projects.p2.desc">A moody black-and-gold website template for a classic barbershop brand. Bold headline typography, appointment booking UI, service listings, and team sections — built to evoke old-world craft with a sharp modern finish.</p>
             <div class="project-tags">
               <span class="project-tag">HTML</span>
               <span class="project-tag">CSS</span>
               <span class="project-tag">JavaScript</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/adamtrabelsii/barbershop-template" target="_blank" rel="noopener" class="project-link">GitHub →</a>
-              <a href="https://barbershop-template-rosy.vercel.app/" target="_blank" rel="noopener" class="project-link">Live →</a>
+              <a href="https://github.com/adamtrabelsii/barbershop-template" target="_blank" rel="noopener" class="project-link" data-i18n="projects.github">GitHub →</a>
+              <a href="https://barbershop-template-rosy.vercel.app/" target="_blank" rel="noopener" class="project-link" data-i18n="projects.live">Live →</a>
             </div>
           </div>
         </div>
@@ -1572,16 +1614,16 @@
             <img src="uploads/optician.PNG" alt="Optician Template preview" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
           </div>
           <div class="project-body">
-            <div class="project-title">Optician — Eyewear Template</div>
-            <p class="project-desc">A clean, professional website template for an optician or eyewear brand. Features a modern layout with product showcases, service sections, and a polished aesthetic designed to build trust and drive bookings.</p>
+            <div class="project-title" data-i18n="projects.p3.title">Optician — Eyewear Template</div>
+            <p class="project-desc" data-i18n="projects.p3.desc">A clean, professional website template for an optician or eyewear brand. Features a modern layout with product showcases, service sections, and a polished aesthetic designed to build trust and drive bookings.</p>
             <div class="project-tags">
               <span class="project-tag">HTML</span>
               <span class="project-tag">CSS</span>
               <span class="project-tag">JavaScript</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/adamtrabelsii/optician-template" target="_blank" rel="noopener" class="project-link">GitHub →</a>
-              <a href="https://optician-template-sable.vercel.app/" target="_blank" rel="noopener" class="project-link">Live →</a>
+              <a href="https://github.com/adamtrabelsii/optician-template" target="_blank" rel="noopener" class="project-link" data-i18n="projects.github">GitHub →</a>
+              <a href="https://optician-template-sable.vercel.app/" target="_blank" rel="noopener" class="project-link" data-i18n="projects.live">Live →</a>
             </div>
           </div>
         </div>
@@ -1594,33 +1636,33 @@
     <!-- EXPERIENCE -->
     <section id="experience">
       <div class="scroll-reveal">
-        <div class="section-label">04 — Experience</div>
-        <h2 class="section-title">Where I've worked</h2>
+        <div class="section-label" data-i18n="exp.label">04 — Experience</div>
+        <h2 class="section-title" data-i18n="exp.title">Where I've worked</h2>
       </div>
       <div class="timeline scroll-reveal">
         <div class="timeline-item">
           <div class="timeline-meta">
-            <span class="timeline-date">Feb 2023 – Jun 2023</span>
-            <span class="timeline-location">Tunis, Tunisia</span>
+            <span class="timeline-date" data-i18n="exp.date1">Feb 2023 – Jun 2023</span>
+            <span class="timeline-location" data-i18n="exp.loc1">Tunis, Tunisia</span>
           </div>
-          <div class="timeline-role">Web Developer Intern</div>
+          <div class="timeline-role" data-i18n="exp.role1">Web Developer Intern</div>
           <div class="timeline-company">SeekMake</div>
           <ul class="timeline-bullets">
-            <li>Developed and maintained web applications using Node.js and TypeScript.</li>
-            <li>Implemented responsive design and ensured cross-browser compatibility.</li>
-            <li>Collaborated with the team to design and integrate new features, improving user engagement.</li>
+            <li data-i18n="exp.b1a">Developed and maintained web applications using Node.js and TypeScript.</li>
+            <li data-i18n="exp.b1b">Implemented responsive design and ensured cross-browser compatibility.</li>
+            <li data-i18n="exp.b1c">Collaborated with the team to design and integrate new features, improving user engagement.</li>
           </ul>
         </div>
         <div class="timeline-item">
           <div class="timeline-meta">
-            <span class="timeline-date">Jun 2022 – Aug 2022</span>
-            <span class="timeline-location">Djerba, Tunisia</span>
+            <span class="timeline-date" data-i18n="exp.date2">Jun 2022 – Aug 2022</span>
+            <span class="timeline-location" data-i18n="exp.loc2">Djerba, Tunisia</span>
           </div>
-          <div class="timeline-role">Web Developer Intern</div>
+          <div class="timeline-role" data-i18n="exp.role2">Web Developer Intern</div>
           <div class="timeline-company">Vacancia Travels</div>
           <ul class="timeline-bullets">
-            <li>Contributed to developing and updating the company's website using PHP.</li>
-            <li>Created and integrated APIs for better functionality and user experience.</li>
+            <li data-i18n="exp.b2a">Contributed to developing and updating the company's website using PHP.</li>
+            <li data-i18n="exp.b2b">Created and integrated APIs for better functionality and user experience.</li>
           </ul>
         </div>
       </div>
@@ -1631,55 +1673,55 @@
     <!-- EDUCATION -->
     <section id="education">
       <div class="scroll-reveal">
-        <div class="section-label">05 — Education</div>
-        <h2 class="section-title">Background</h2>
+        <div class="section-label" data-i18n="edu.label">05 — Education</div>
+        <h2 class="section-title" data-i18n="edu.title">Background</h2>
       </div>
       <div class="edu-grid scroll-reveal">
         <div class="edu-card">
-          <div class="edu-degree">Degree in Computer Science &amp; Multimedia</div>
-          <div class="edu-school">Higher Institute of Arts and Multimedia Manouba</div>
+          <div class="edu-degree" data-i18n="edu.d1">Degree in Computer Science &amp; Multimedia</div>
+          <div class="edu-school" data-i18n="edu.s1">Higher Institute of Arts and Multimedia Manouba</div>
           <div class="edu-meta">
-            <span class="edu-tag">2020 – 2023</span>
-            <span class="edu-tag">Tunis, Tunisia</span>
+            <span class="edu-tag" data-i18n="edu.date1">2020 – 2023</span>
+            <span class="edu-tag" data-i18n="edu.loc1">Tunis, Tunisia</span>
           </div>
         </div>
         <div class="edu-card">
-          <div class="edu-degree">Spanish Language — C1 Proficiency</div>
-          <div class="edu-school">AIL Madrid</div>
+          <div class="edu-degree" data-i18n="edu.d2">Spanish Language — C1 Proficiency</div>
+          <div class="edu-school" data-i18n="edu.s2">AIL Madrid</div>
           <div class="edu-meta">
-            <span class="edu-tag">2024 – 2025</span>
-            <span class="edu-tag">Madrid, Spain</span>
+            <span class="edu-tag" data-i18n="edu.date2">2024 – 2025</span>
+            <span class="edu-tag" data-i18n="edu.loc2">Madrid, Spain</span>
           </div>
         </div>
       </div>
 
       <div style="margin-top: 60px;" class="scroll-reveal">
-        <div class="section-label" style="margin-bottom: 24px;">Languages</div>
+        <div class="section-label" style="margin-bottom: 24px;" data-i18n="lang.title">Languages</div>
         <div class="lang-grid">
           <div class="lang-card">
-            <div class="lang-name">Arabic</div>
-            <div class="lang-level">Native</div>
+            <div class="lang-name" data-i18n="lang.arabic">Arabic</div>
+            <div class="lang-level" data-i18n="lang.arabic.l">Native</div>
             <div class="lang-bar">
               <div class="lang-bar-fill" data-width="100"></div>
             </div>
           </div>
           <div class="lang-card">
-            <div class="lang-name">English</div>
-            <div class="lang-level">Fluent</div>
+            <div class="lang-name" data-i18n="lang.english">English</div>
+            <div class="lang-level" data-i18n="lang.english.l">Fluent</div>
             <div class="lang-bar">
               <div class="lang-bar-fill" data-width="90"></div>
             </div>
           </div>
           <div class="lang-card">
-            <div class="lang-name">French</div>
-            <div class="lang-level">Proficient</div>
+            <div class="lang-name" data-i18n="lang.french">French</div>
+            <div class="lang-level" data-i18n="lang.french.l">Proficient</div>
             <div class="lang-bar">
               <div class="lang-bar-fill" data-width="75"></div>
             </div>
           </div>
           <div class="lang-card">
-            <div class="lang-name">Spanish</div>
-            <div class="lang-level">C1 — Proficient</div>
+            <div class="lang-name" data-i18n="lang.spanish">Spanish</div>
+            <div class="lang-level" data-i18n="lang.spanish.l">C1 — Proficient</div>
             <div class="lang-bar">
               <div class="lang-bar-fill" data-width="80"></div>
             </div>
@@ -1688,27 +1730,27 @@
       </div>
 
       <div style="margin-top: 60px;" class="scroll-reveal">
-        <div class="section-label" style="margin-bottom: 24px;">Beyond code</div>
+        <div class="section-label" style="margin-bottom: 24px;" data-i18n="beyond.title">Beyond code</div>
         <div class="interests-row">
           <div class="interest-card">
             <div class="interest-icon" aria-hidden="true">🎸</div>
-            <div class="interest-title">Music</div>
-            <div class="interest-desc">Professional guitarist</div>
+            <div class="interest-title" data-i18n="int.music">Music</div>
+            <div class="interest-desc" data-i18n="int.music.d">Professional guitarist</div>
           </div>
           <div class="interest-card">
             <div class="interest-icon" aria-hidden="true">♟️</div>
-            <div class="interest-title">Chess</div>
-            <div class="interest-desc">Competitive player</div>
+            <div class="interest-title" data-i18n="int.chess">Chess</div>
+            <div class="interest-desc" data-i18n="int.chess.d">Competitive player</div>
           </div>
           <div class="interest-card">
             <div class="interest-icon" aria-hidden="true">🎾</div>
-            <div class="interest-title">Tennis</div>
-            <div class="interest-desc">Recreational player</div>
+            <div class="interest-title" data-i18n="int.tennis">Tennis</div>
+            <div class="interest-desc" data-i18n="int.tennis.d">Recreational player</div>
           </div>
           <div class="interest-card">
             <div class="interest-icon" aria-hidden="true">👥</div>
-            <div class="interest-title">Leadership</div>
-            <div class="interest-desc">President, ISAMM Music Club — led 20+ students</div>
+            <div class="interest-title" data-i18n="int.leader">Leadership</div>
+            <div class="interest-desc" data-i18n="int.leader.d">President, ISAMM Music Club — led 20+ students</div>
           </div>
         </div>
       </div>
@@ -1720,20 +1762,20 @@
     <div id="contact">
       <div class="inner">
         <div class="scroll-reveal">
-          <div class="section-label">06 — Contact</div>
-          <h2 class="section-title">Let's work<br>together.</h2>
+          <div class="section-label" data-i18n="contact.label">06 — Contact</div>
+          <h2 class="section-title" data-i18n-html="contact.title">Let's work<br>together.</h2>
         </div>
         <div class="contact-grid scroll-reveal">
           <div>
-            <p class="contact-intro">I'm open to new opportunities — whether that's a full-time role, freelance project,
+            <p class="contact-intro" data-i18n="contact.intro">I'm open to new opportunities — whether that's a full-time role, freelance project,
               or just a conversation. Let's connect.</p>
             <div class="contact-links">
               <a href="mailto:ademtrabelsi2001@gmail.com" class="contact-link">
-                <span class="contact-link-icon">Email</span>
+                <span class="contact-link-icon" data-i18n="tag.email">Email</span>
                 <span>ademtrabelsi2001@gmail.com</span>
               </a>
               <a href="tel:+34633454968" class="contact-link">
-                <span class="contact-link-icon">Phone</span>
+                <span class="contact-link-icon" data-i18n="tag.phone">Phone</span>
                 <span>+34 633 454 968</span>
               </a>
               <a href="https://linkedin.com/in/adamtrabelsii" target="_blank" rel="noopener" class="contact-link">
@@ -1748,12 +1790,12 @@
           </div>
           <div style="display:flex; flex-direction:column; justify-content:flex-end;">
             <div
-              style="font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;">
+              style="font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;" data-i18n="contact.basedlabel">
               Based in</div>
             <div
-              style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--text);">
+              style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--text);" data-i18n-html="contact.based">
               Madrid,<br>Spain 🇪🇸</div>
-            <div style="margin-top: 16px; font-size: 14px; color: var(--muted);">Open to remote &amp; on-site roles
+            <div style="margin-top: 16px; font-size: 14px; color: var(--muted);" data-i18n="contact.open">Open to remote &amp; on-site roles
               globally.</div>
           </div>
         </div>
@@ -1905,6 +1947,175 @@
         ? (mobile ? '12px 24px' : '12px 48px')
         : (mobile ? '16px 24px' : '20px 48px');
     }, { passive: true });
+
+    // ─── I18N ───
+    const i18n = {
+      en: {
+        'nav.about': 'About', 'nav.skills': 'Skills', 'nav.projects': 'Projects',
+        'nav.experience': 'Experience', 'nav.education': 'Education', 'nav.contact': 'Contact',
+        'nav.cta': 'Get in touch',
+        'meta.title': 'Adam Trabelsi — Full-Stack Developer',
+        'hero.eyebrow': 'Available for opportunities',
+        'hero.tagline': "Full-stack developer working with Node.js, TypeScript and React. I care about clean architecture, sharp interfaces, and code that holds up in production.",
+        'hero.work': 'View my work', 'hero.hello': 'Say hello →', 'hero.cv': '↓ CV',
+        'hero.scroll': 'Scroll to explore', 'hero.location': '📍 Madrid, Spain',
+        'about.label': '01 — About',
+        'about.title': 'Developer.<br>Problem solver.<br>Multilingual.',
+        'about.p1': "I'm a <strong>Full-Stack Developer</strong> with a strong focus on Node.js and TypeScript, experienced in building scalable web applications and integrating robust APIs.",
+        'about.p2': "With a background in Computer Science and Multimedia, I bring both <strong>technical depth and creative sensibility</strong> to every project — from backend architecture to responsive frontend design.",
+        'about.p3': "I'm multilingual (Arabic, English, French, Spanish) with a <strong>problem-solving mindset</strong> and strong communication skills, making me effective in diverse, international teams.",
+        'about.stat1': 'Years experience', 'about.stat2': 'Languages spoken',
+        'about.stat3': 'Spanish level', 'about.stat4': 'Students led',
+        'skills.label': '02 — Skills', 'skills.title': 'Tech stack',
+        'skills.cat1': 'Frontend', 'skills.cat2': 'Backend', 'skills.cat3': 'Tools & Methods',
+        'projects.label': '03 — Projects', 'projects.title': "Things I've built",
+        'projects.more': 'MORE COMING SOON',
+        'projects.p1.title': 'ARDOR — Restaurant Template',
+        'projects.p1.desc': 'Premium website template for a fictional Madrid fine-dining restaurant. Features an editorial dark aesthetic, immersive food photography layout, and sections for dishes, drinks, and reservations — ready to hand off to any client.',
+        'projects.p2.title': 'The Old Quarter — Barbershop Template',
+        'projects.p2.desc': 'A moody black-and-gold website template for a classic barbershop brand. Bold headline typography, appointment booking UI, service listings, and team sections — built to evoke old-world craft with a sharp modern finish.',
+        'projects.p3.title': 'Optician — Eyewear Template',
+        'projects.p3.desc': 'A clean, professional website template for an optician or eyewear brand. Features a modern layout with product showcases, service sections, and a polished aesthetic designed to build trust and drive bookings.',
+        'projects.github': 'GitHub →', 'projects.live': 'Live →',
+        'exp.label': '04 — Experience', 'exp.title': "Where I've worked",
+        'exp.date1': 'Feb 2023 – Jun 2023', 'exp.loc1': 'Tunis, Tunisia',
+        'exp.role1': 'Web Developer Intern',
+        'exp.b1a': 'Developed and maintained web applications using Node.js and TypeScript.',
+        'exp.b1b': 'Implemented responsive design and ensured cross-browser compatibility.',
+        'exp.b1c': 'Collaborated with the team to design and integrate new features, improving user engagement.',
+        'exp.date2': 'Jun 2022 – Aug 2022', 'exp.loc2': 'Djerba, Tunisia',
+        'exp.role2': 'Web Developer Intern',
+        'exp.b2a': "Contributed to developing and updating the company's website using PHP.",
+        'exp.b2b': 'Created and integrated APIs for better functionality and user experience.',
+        'edu.label': '05 — Education', 'edu.title': 'Background',
+        'edu.d1': 'Degree in Computer Science & Multimedia',
+        'edu.s1': 'Higher Institute of Arts and Multimedia Manouba',
+        'edu.date1': '2020 – 2023', 'edu.loc1': 'Tunis, Tunisia',
+        'edu.d2': 'Spanish Language — C1 Proficiency', 'edu.s2': 'AIL Madrid',
+        'edu.date2': '2024 – 2025', 'edu.loc2': 'Madrid, Spain',
+        'lang.title': 'Languages',
+        'lang.arabic': 'Arabic', 'lang.arabic.l': 'Native',
+        'lang.english': 'English', 'lang.english.l': 'Fluent',
+        'lang.french': 'French', 'lang.french.l': 'Proficient',
+        'lang.spanish': 'Spanish', 'lang.spanish.l': 'C1 — Proficient',
+        'beyond.title': 'Beyond code',
+        'int.music': 'Music', 'int.music.d': 'Professional guitarist',
+        'int.chess': 'Chess', 'int.chess.d': 'Competitive player',
+        'int.tennis': 'Tennis', 'int.tennis.d': 'Recreational player',
+        'int.leader': 'Leadership', 'int.leader.d': 'President, ISAMM Music Club — led 20+ students',
+        'contact.label': '06 — Contact', 'contact.title': "Let's work<br>together.",
+        'contact.intro': "I'm open to new opportunities — whether that's a full-time role, freelance project, or just a conversation. Let's connect.",
+        'contact.basedlabel': 'Based in', 'contact.based': 'Madrid,<br>Spain 🇪🇸',
+        'contact.open': 'Open to remote & on-site roles globally.',
+        'tag.email': 'Email', 'tag.phone': 'Phone',
+      },
+      es: {
+        'nav.about': 'Sobre mí', 'nav.skills': 'Habilidades', 'nav.projects': 'Proyectos',
+        'nav.experience': 'Experiencia', 'nav.education': 'Educación', 'nav.contact': 'Contacto',
+        'nav.cta': 'Contáctame',
+        'meta.title': 'Adam Trabelsi — Desarrollador Full Stack',
+        'hero.eyebrow': 'Disponible para oportunidades',
+        'hero.tagline': 'Desarrollador full-stack con Node.js, TypeScript y React. Me importa la arquitectura limpia, las interfaces nítidas y el código que aguanta en producción.',
+        'hero.work': 'Ver mi trabajo', 'hero.hello': 'Saluda →', 'hero.cv': '↓ CV',
+        'hero.scroll': 'Desplázate para explorar', 'hero.location': '📍 Madrid, España',
+        'about.label': '01 — Sobre mí',
+        'about.title': 'Desarrollador.<br>Resolutivo.<br>Multilingüe.',
+        'about.p1': 'Soy <strong>Desarrollador Full-Stack</strong> con un fuerte enfoque en Node.js y TypeScript, con experiencia construyendo aplicaciones web escalables e integrando APIs robustas.',
+        'about.p2': 'Con formación en Informática y Multimedia, aporto <strong>profundidad técnica y sensibilidad creativa</strong> en cada proyecto — desde la arquitectura backend hasta el diseño frontend responsivo.',
+        'about.p3': 'Soy multilingüe (árabe, inglés, francés, español) con una <strong>mentalidad resolutiva</strong> y buenas habilidades de comunicación, lo que me hace efectivo en equipos internacionales diversos.',
+        'about.stat1': 'Años de experiencia', 'about.stat2': 'Idiomas hablados',
+        'about.stat3': 'Nivel de español', 'about.stat4': 'Estudiantes liderados',
+        'skills.label': '02 — Habilidades', 'skills.title': 'Stack técnico',
+        'skills.cat1': 'Frontend', 'skills.cat2': 'Backend', 'skills.cat3': 'Herramientas y métodos',
+        'projects.label': '03 — Proyectos', 'projects.title': 'Lo que he creado',
+        'projects.more': 'MÁS PROYECTOS PRÓXIMAMENTE',
+        'projects.p1.title': 'ARDOR — Plantilla de Restaurante',
+        'projects.p1.desc': 'Plantilla web premium para un restaurante de alta cocina ficticio en Madrid. Estética editorial oscura, fotografía gastronómica inmersiva y secciones para platos, bebidas y reservas — lista para entregar a cualquier cliente.',
+        'projects.p2.title': 'The Old Quarter — Plantilla de Barbería',
+        'projects.p2.desc': 'Plantilla web en negro y dorado para una marca clásica de barbería. Tipografía contundente, interfaz de reservas, listado de servicios y secciones de equipo — diseñada para evocar el oficio tradicional con un acabado moderno y nítido.',
+        'projects.p3.title': 'Óptica — Plantilla de Gafas',
+        'projects.p3.desc': 'Plantilla web limpia y profesional para una óptica o marca de gafas. Diseño moderno con escaparates de productos, secciones de servicios y una estética cuidada para generar confianza e impulsar reservas.',
+        'projects.github': 'GitHub →', 'projects.live': 'Demo →',
+        'exp.label': '04 — Experiencia', 'exp.title': 'Dónde he trabajado',
+        'exp.date1': 'Feb 2023 – Jun 2023', 'exp.loc1': 'Túnez, Túnez',
+        'exp.role1': 'Desarrollador Web en Prácticas',
+        'exp.b1a': 'Desarrollo y mantenimiento de aplicaciones web utilizando Node.js y TypeScript.',
+        'exp.b1b': 'Implementación de diseño responsivo y aseguramiento de la compatibilidad entre navegadores.',
+        'exp.b1c': 'Colaboración con el equipo para diseñar e integrar nuevas funcionalidades, mejorando el compromiso de los usuarios.',
+        'exp.date2': 'Jun 2022 – Ago 2022', 'exp.loc2': 'Djerba, Túnez',
+        'exp.role2': 'Desarrollador Web',
+        'exp.b2a': 'Contribución al desarrollo y actualización del sitio web de la empresa utilizando PHP.',
+        'exp.b2b': 'Creación e integración de APIs para mejorar la funcionalidad y la experiencia del usuario.',
+        'edu.label': '05 — Educación', 'edu.title': 'Formación',
+        'edu.d1': 'Grado en Informática y Multimedia',
+        'edu.s1': 'Instituto Superior de Artes y Multimedia de Manouba',
+        'edu.date1': '2020 – 2023', 'edu.loc1': 'Túnez, Túnez',
+        'edu.d2': 'Idioma Español — Nivel C1', 'edu.s2': 'AIL Madrid',
+        'edu.date2': '2024 – 2025', 'edu.loc2': 'Madrid, España',
+        'lang.title': 'Idiomas',
+        'lang.arabic': 'Árabe', 'lang.arabic.l': 'Nativo',
+        'lang.english': 'Inglés', 'lang.english.l': 'Fluido',
+        'lang.french': 'Francés', 'lang.french.l': 'Avanzado',
+        'lang.spanish': 'Español', 'lang.spanish.l': 'C1 — Avanzado',
+        'beyond.title': 'Más allá del código',
+        'int.music': 'Música', 'int.music.d': 'Guitarrista profesional',
+        'int.chess': 'Ajedrez', 'int.chess.d': 'Jugador competitivo',
+        'int.tennis': 'Tenis', 'int.tennis.d': 'Jugador recreativo',
+        'int.leader': 'Liderazgo', 'int.leader.d': 'Presidente del Club de Música ISAMM — lideré a más de 20 estudiantes',
+        'contact.label': '06 — Contacto', 'contact.title': 'Trabajemos<br>juntos.',
+        'contact.intro': 'Estoy abierto a nuevas oportunidades — ya sea un puesto a tiempo completo, un proyecto freelance o simplemente una conversación. Conectemos.',
+        'contact.basedlabel': 'Ubicado en', 'contact.based': 'Madrid,<br>España 🇪🇸',
+        'contact.open': 'Abierto a roles remotos y presenciales en todo el mundo.',
+        'tag.email': 'Email', 'tag.phone': 'Teléfono',
+      }
+    };
+
+    const langBtn = document.querySelector('.nav-lang');
+    const langBtnLabel = langBtn.querySelector('.lang-code');
+    const mobileLangBtn = document.querySelector('[data-mobile-lang]');
+    const cvLink = document.querySelector('[data-cv]');
+
+    function applyLang(lang) {
+      const dict = i18n[lang] || i18n.en;
+      document.documentElement.lang = lang;
+      document.title = dict['meta.title'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+      if (cvLink) {
+        if (lang === 'es') {
+          cvLink.setAttribute('href', 'uploads/cv-spanish.pdf');
+          cvLink.setAttribute('download', 'Adam_Trabelsi_CV_ES.pdf');
+        } else {
+          cvLink.setAttribute('href', 'uploads/cv-english.pdf');
+          cvLink.setAttribute('download', 'Adam_Trabelsi_CV.pdf');
+        }
+      }
+      if (langBtnLabel) langBtnLabel.textContent = lang === 'es' ? 'EN' : 'ES';
+      const nextLabel = lang === 'es' ? 'Switch to English' : 'Cambiar a español';
+      langBtn.setAttribute('aria-label', nextLabel);
+      if (mobileLangBtn) {
+        mobileLangBtn.textContent = lang === 'es' ? 'EN — Switch to English' : 'ES — Cambiar a español';
+      }
+    }
+
+    const savedLang = localStorage.getItem('portfolio-lang');
+    const initialLang = savedLang || (navigator.language && navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en');
+    applyLang(initialLang);
+
+    function toggleLang() {
+      const next = document.documentElement.lang === 'es' ? 'en' : 'es';
+      applyLang(next);
+      localStorage.setItem('portfolio-lang', next);
+    }
+
+    langBtn.addEventListener('click', toggleLang);
+    if (mobileLangBtn) mobileLangBtn.addEventListener('click', () => { toggleLang(); closeMenu(); });
   </script>
 </body>
 
